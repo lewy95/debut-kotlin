@@ -1,4 +1,4 @@
-package cn.xzxy.lewy.further
+package cn.xzxy.lewy.generic
 
 /**
  * 协变与逆变

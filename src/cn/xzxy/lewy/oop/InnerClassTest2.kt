@@ -1,4 +1,4 @@
-package cn.xzxy.lewy.further
+package cn.xzxy.lewy.oop
 
 class Student(val name: String, val age: Int) {
 

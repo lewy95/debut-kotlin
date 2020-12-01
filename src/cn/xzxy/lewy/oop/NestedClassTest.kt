@@ -1,7 +1,8 @@
-package cn.xzxy.lewy.further
+package cn.xzxy.lewy.oop
 
 /**
- * 嵌套类
+ * 嵌套类：
+ * 嵌套类不能访问外部类的其他成员，只能访问其他的嵌套类（因为都是静态的）
  */
 class OuterClass {
 
