@@ -1,5 +1,8 @@
-package cn.xzxy.lewy.debut
+package cn.xzxy.lewy.garmmar
 
+/**
+ * when 语法
+ */
 fun main() {
     println(statementWhen1("A"))
     println(statementWhen2(6))
@@ -32,21 +35,4 @@ fun statementWhen2(x: Int): Int {
             50
         }
     }
-}
-
-fun statementIf(a: Int, b: Int): Int {
-    // return if (a > b) a else b
-
-    // val min = if (a < b) a else b
-    // println("min = $min")
-
-    val max = if (a > b) {
-        println(a)
-        a // 最后一行作为返回值
-    } else {
-        println(b)
-        b
-    }
-    return max
-    //println(max)
 }
