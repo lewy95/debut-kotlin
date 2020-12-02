@@ -2,13 +2,32 @@ package cn.xzxy.lewy.function
 
 /**
  * 函数调用
+ * 注意：在kotlin中调用java方法时不能使用具名参数，因为java字节码并不总是保留方法参数名信息
  */
 fun defaultArgsTest(a: Int = 1, b: Int = 2) = println(a - b)
 
 fun defaultArgsTest2(a: Int = 3, b: Int) = println(a - b)
 
+fun defaultArgsTest3(a: Int, b: Int = 3, c: Int = 5, d: Int) = println(a - b)
+
+
 fun lambdaArgsTest(a: Int = 1, b: Int = 2, compute: (x: Int, y: Int) -> Unit): Unit {
     compute(a, b)
+}
+
+// 可变参数
+// kotlin只允许拥有一个可变参数vararg，通常作为最后一个参数
+// 如果vararg不是最后一个参数，那么vararg之后参数必须通过具名参数来调用
+fun varargTest(i: Int, vararg strings: String) {
+    println(i)
+    println(strings.javaClass)
+    strings.forEach { println(it) }
+}
+
+fun <T> varargTest2(vararg element: T): List<T> {
+    val result = ArrayList<T>()
+    element.forEach { result.add(it) }
+    return result
 }
 
 fun main(args: Array<String>) {
@@ -22,6 +41,9 @@ fun main(args: Array<String>) {
     // 那么默认值只能通过在调用函数时使用具名参数
     //defaultArgsTest2(2) // 编译失败，a=2，但b没有赋值
     defaultArgsTest2(b = 2)
+
+    // defaultArgsTest3(1, b = 2, 5); 编译失败，所有的位置参数都应该位于具名参数之前
+    defaultArgsTest3(1, 2, 3, d = 4) // 编译成功
 
     // ------------------------------------
     // 默认参数重写测试
@@ -42,6 +64,15 @@ fun main(args: Array<String>) {
     // 注意：对于lambdaArgsTest(a: Int = 1, b: Int = 2, compute: (x:Int, y:Int) -> Unit)
     // 有默认参数的在无默认参数之间，但这个默认参数是一个lambda表达式，并且调用时在圆括号之外
     // 此时就不需要指定lambda表达式的具名参数
+
+    // -------------------------------------
+    // 可变参数函数的调用
+    // *arrayOf 表示分散运算符，将数组打散为string
+    varargTest(3, strings = *arrayOf("a", "b", "c"))
+
+    println(varargTest2("a", "b", "c"))
+    val elements = arrayOf("d", "e", "f")
+    println(varargTest2("g", "h", *elements))
 }
 
 /**
