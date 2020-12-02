@@ -2,11 +2,15 @@ package cn.xzxy.lewy.generic
 
 /**
  * 泛型擦除
+ * Kotlin 为泛型声明用法执行的类型安全检测仅在编译期进行
+ * 运行时泛型类型的实例不保留关于其类型实参的任何信息，其类型信息称为被擦除,
+ * 例如 Foo<Bar> 与 Foo<Baz?> 的实例都会被擦除为 Foo<*>
  */
 class MyStorage<out T>(private var t: T) {
     fun getValue(): T {
         return this.t
     }
+    // @UnsafeVariance的含义是型变点违例，告诉编译器不要管
     fun setValue(t: @UnsafeVariance T): Unit {
         this.t = t
     }
