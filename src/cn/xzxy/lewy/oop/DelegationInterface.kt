@@ -27,3 +27,4 @@ fun main() {
     val myInterfaceImpl = MyInterfaceImpl("tony")
     MyClass(myInterfaceImpl).printInfo()
 }
+
