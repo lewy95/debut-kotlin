@@ -31,6 +31,12 @@ class CoPlayer {
             println("method2 invoke")
         }
     }
+
+    fun getInner(): Unit {
+        println(a)
+        println(method())
+        println(method2())
+    }
 }
 
 fun main() {

@@ -29,5 +29,5 @@ fun main(args: Array<String>) {
     println("-----------------------------------")
 
     val str = "ymyytly69zlyjsyly"
-    println(str.filter { it.isLetter() }) // 去除字符
+    println(str.filter { it.isLetter() }) // 去除数字
 }

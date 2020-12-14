@@ -18,7 +18,7 @@ class Club (name: String, private val nation: String = "GER") {
     /**
      * 关于lateinit：
      * 1. 只能用在类体声明的var上，不能用在primary构造方法的属性上;
-     * 2. 属性不能拥有自定义的setter1和getter；
+     * 2. 属性不能拥有自定义的setter和getter；
      * 3. 属性类型需要非空（不能是String?类似的），且不能是基本数据类型；
      */
     lateinit var address: String // 延迟初始化

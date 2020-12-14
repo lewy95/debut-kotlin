@@ -21,5 +21,6 @@ class PlayerServiceImpl(name: String?, age: Int) : PlayerService, PlayerService2
 
     override fun goal() {
         super<PlayerService>.goal() // 表示调用PlayerService中的方法
+        super<PlayerService2>.goal() // 表示调用PlayerService2中的方法
     }
 }
