@@ -25,9 +25,9 @@ fun isType(str: Any): String? {
 }
 
 // 测试不确定类型，如 Int? 表示返回值可以是 Int 或 null
-fun uncertainType(a: Int, b:Int) :Int? {
+fun uncertainType(a: Int, b: Int): Int? {
 
-    val num :Int?
+    val num: Int?
     try {
         num = a / b
     } catch (e: Exception) {
@@ -40,7 +40,7 @@ fun uncertainType(a: Int, b:Int) :Int? {
 // 类型转换
 fun transferType() {
     // 整形转其他
-    val aaa :Int = 666
+    val aaa: Int = 666
     println(aaa.toDouble()) // 123.0
     println(aaa.toFloat())  // 123.0
     println(aaa.toString())
