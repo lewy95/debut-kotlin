@@ -11,9 +11,15 @@ package cn.xzxy.lewy.clazz
  *    internal:只能在同一个模块下使用
  *    protected:不能用于顶层
  *    public:到哪都能用
- *
+ * 5. var / val / const val 区别：
+ *    var 定义私有变量，带有公有的set/get方法
+ *    val 定义私有常量，但只带有公有的set/get方法
+ *    const val 定义私有常量，但只带有公有的set/get方法，只能定义在最外层或object中
  */
 class Club (name: String, private val nation: String = "GER") {
+
+    // const 只能定义在最外层，不能在类中定义
+    // const val yy = "oo"
 
     /**
      * 关于lateinit：
@@ -34,14 +40,33 @@ class Club (name: String, private val nation: String = "GER") {
             field = value
         }
 
+    companion object {
+        // const定义点1：
+        const val yy = "oo-1"
+    }
+
+    // 测试调用 const val 属性
+    fun invokeConstVal(): Unit {
+        println(ConstValObject.yy) // 调用伴生类中的
+        println(yy) // 若有伴生对象，则调用伴生对象中，否则调用顶层中的
+    }
+
     // toString方法
     override fun toString(): String {
         return "Club(nation='$nation')"
     }
-
 }
+
+// const定义点2：顶层
+const val yy = "oo-2"
+
+object ConstValObject {
+    // const定义点3：伴生类
+    const val yy = "oo-3"
+}
+
 
 fun main() {
     val club = Club("FCB")
-
+    club.invokeConstVal()
 }
