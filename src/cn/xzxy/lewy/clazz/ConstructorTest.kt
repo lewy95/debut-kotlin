@@ -33,13 +33,6 @@ class Player constructor(name: String, age: Int, number: Int) {
     // 方式二：直接省略不写，将属性都在参数中声明即可，甚至花括号都可以不写
     // 即 class Player constructor(name: String, age: Int, number: Int)
 
-    // *****************开始secondary构造方法******************
-    // secondary构造方法需要放在类体中，可以有0个，1个，多个
-    // secondary构造方法都是基于primary构造方法来实现的
-    constructor(name: String, age: Int, number: Int, address: String): this(name, age, number) {
-        this.address = address
-    }
-
     override fun toString(): String {
         return "Player(name='$name', age=$age, number=$number, address='$address')"
     }
@@ -57,7 +50,5 @@ class Player constructor(name: String, age: Int, number: Int) {
 fun main() {
     val player = Player("muller", 31, 25)
     println(player.toString())
-    val player2 = Player("muller", 31, 25, "GER")
-    println(player2.toString())
 
 }
