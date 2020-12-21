@@ -28,9 +28,13 @@ class Player constructor(name: String, age: Int, number: Int) {
         this.address = "MUNICH"
     }
 
+
+    // 方式二：直接在定义变量时赋值，不写在init中
+    // private var address: String = "MUNICH"
+
     //====================================
 
-    // 方式二：直接省略不写，将属性都在参数中声明即可，甚至花括号都可以不写
+    // 方式三：直接省略不写，将属性都在参数中声明即可，甚至花括号都可以不写
     // 即 class Player constructor(name: String, age: Int, number: Int)
 
     override fun toString(): String {

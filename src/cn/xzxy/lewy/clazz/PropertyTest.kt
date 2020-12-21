@@ -29,15 +29,23 @@ class Club (name: String, private val nation: String = "GER") {
      */
     lateinit var address: String // 延迟初始化
 
-    private var name: String? = name
+    var name: String? = name
         // 标准的getter/setter方法，初始化时默认有
         get() {
             println("get invoke")
             return field
         }
         set(value) {
-            println("set invoke")
-            field = value
+            // 最基础的：
+            // field = value
+            // 还可以实现更多的操作
+            field = if(value == null) {
+                println("set invoke to branch 1")
+                value
+            } else {
+                println("set invoke to branch 2")
+                value
+            }
         }
 
     companion object {
@@ -69,4 +77,10 @@ object ConstValObject {
 fun main() {
     val club = Club("FCB")
     club.invokeConstVal()
+    // test set
+    club.address= "MUNICH"
+    println(club.address)
+    club.name = null
+    club.name = "HAM"
+    println(club.name)
 }
