@@ -36,8 +36,9 @@ class Club (name: String, private val nation: String = "GER") {
             return field
         }
         set(value) {
-            // 最基础的：
-            // field = value
+            // field = value // 最基础的
+            println("old value $field")
+            println("new value $value")
             // 还可以实现更多的操作
             field = if(value == null) {
                 println("set invoke to branch 1")
@@ -77,9 +78,11 @@ object ConstValObject {
 fun main() {
     val club = Club("FCB")
     club.invokeConstVal()
+
     // test set
     club.address= "MUNICH"
     println(club.address)
+
     club.name = null
     club.name = "HAM"
     println(club.name)
