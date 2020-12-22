@@ -1,33 +1,29 @@
 package cn.xzxy.lewy.garmmar
 
 /**
- * 高阶函数，接受一个函数作为参数
+ * 案例：return与标签的说明（在循环中）
  */
-fun myReturn(changeFun: () -> Unit) {
+fun myReturn(changeFun: () -> Unit) { // 用于传入的高阶函数
   changeFun()
   println("高级函数的Lambda表达式执行完")
 }
 
 var list = listOf<Int>(1, 2, 3)
 
-/**
- *  传入作为的参数的函数
- */
+// 不使用标签的效果，相当于 break
 fun change() {
-  /**
-   * Lambda表达式，单个参数，时候可以省略声明参数和->
-   */
-  list.forEach { item ->
-    if (item == 2) return
-    println("当前遍历的值是 $item")
+  list.forEach {
+    if (it == 2) return
+    println("当前遍历的值是 $it")
   }
   println("list集合遍历完成")
 }
 
+// 使用标签的效果，相当于 continue
 fun change2() {
-  list.forEach { item ->
-    if (item == 2) return@forEach //使用标签
-    println("当前遍历的值是 $item")
+  list.forEach {
+    if (it == 2) return@forEach
+    println("当前遍历的值是 $it")
   }
   println("list集合遍历完成")
 }
