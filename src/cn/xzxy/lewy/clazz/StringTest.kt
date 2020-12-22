@@ -1,4 +1,4 @@
-package cn.xzxy.lewy.garmmar
+package cn.xzxy.lewy.clazz
 
 /**
  * 字符串操作
